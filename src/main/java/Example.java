@@ -8,7 +8,7 @@ import libvmr.*;
 
 public class Example {
 
-    public static void main(String[] args) {
+    public static void main(   String[] args) {
         // Create an array of data for the task - XOR
         // Columns in the beginning - the input data (v0 and v1)
         // The last column - the output values
