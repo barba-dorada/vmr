@@ -24,7 +24,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Сепаратор, разделяющий выборку на обучающую и тестовую части
+ * РЎРµРїР°СЂР°С‚РѕСЂ, СЂР°Р·РґРµР»СЏСЋС‰РёР№ РІС‹Р±РѕСЂРєСѓ РЅР° РѕР±СѓС‡Р°СЋС‰СѓСЋ Рё С‚РµСЃС‚РѕРІСѓСЋ С‡Р°СЃС‚Рё
  * @author Yury V. Reshetov
  * @version 3.01
  */
@@ -32,48 +32,48 @@ public class Separator implements Serializable {
 	
 	private static final long serialVersionUID = 301L;
 	/**
-	 * Исходная выборка
+	 * РСЃС…РѕРґРЅР°СЏ РІС‹Р±РѕСЂРєР°
 	 */
 	private double[][] samples = null;
 	/**
-	 * Обучающая выборка
+	 * РћР±СѓС‡Р°СЋС‰Р°СЏ РІС‹Р±РѕСЂРєР°
 	 */
 	private double[][] trainsamples = null;
 	/**
-	 * Тестовая выборка, пригодная только для статистики
+	 * РўРµСЃС‚РѕРІР°СЏ РІС‹Р±РѕСЂРєР°, РїСЂРёРіРѕРґРЅР°СЏ С‚РѕР»СЊРєРѕ РґР»СЏ СЃС‚Р°С‚РёСЃС‚РёРєРё
 	 */
 	private double[][] testsamples = null;
 	/**
-	 * Полная тестовая выборка
+	 * РџРѕР»РЅР°СЏ С‚РµСЃС‚РѕРІР°СЏ РІС‹Р±РѕСЂРєР°
 	 */
 	private double[][] fulltestsamples = null;
 
 	/**
-	 * @return полная тестовая часть
+	 * @return РїРѕР»РЅР°СЏ С‚РµСЃС‚РѕРІР°СЏ С‡Р°СЃС‚СЊ
 	 */
 	public double[][] getFullTestSamples() {
 		return this.fulltestsamples;
 	}
 
 	/**
-	 * Получить тестовую часть для статистики
-	 * @return тестовая часть для статистики
+	 * РџРѕР»СѓС‡РёС‚СЊ С‚РµСЃС‚РѕРІСѓСЋ С‡Р°СЃС‚СЊ РґР»СЏ СЃС‚Р°С‚РёСЃС‚РёРєРё
+	 * @return С‚РµСЃС‚РѕРІР°СЏ С‡Р°СЃС‚СЊ РґР»СЏ СЃС‚Р°С‚РёСЃС‚РёРєРё
 	 */
 	public double[][] getStatisticalTestSamples() {
 		return this.testsamples;
 	}
 
 	/**
-	 * Получить обучающую часть
-	 * @return обучающая часть
+	 * РџРѕР»СѓС‡РёС‚СЊ РѕР±СѓС‡Р°СЋС‰СѓСЋ С‡Р°СЃС‚СЊ
+	 * @return РѕР±СѓС‡Р°СЋС‰Р°СЏ С‡Р°СЃС‚СЊ
 	 */
 	public double[][] getTrainSamples() {
 		return this.trainsamples;
 	}
 
 	/**
-	 * Конструктор
-	 * @param Общая выборка с примерами
+	 * РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	 * @param РћР±С‰Р°СЏ РІС‹Р±РѕСЂРєР° СЃ РїСЂРёРјРµСЂР°РјРё
 	 */
 	public Separator(double[][] patterns) {
 		this.samples = patterns;

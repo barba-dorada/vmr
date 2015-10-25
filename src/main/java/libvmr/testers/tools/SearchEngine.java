@@ -22,7 +22,7 @@ package libvmr.testers.tools;
 import libvmr.VMR;
 
 /**
- * Поиск наилучшей модели
+ * РџРѕРёСЃРє РЅР°РёР»СѓС‡С€РµР№ РјРѕРґРµР»Рё
  * @author Yury V. Reshetov
  * @version 3.00
  */
@@ -30,19 +30,19 @@ import libvmr.VMR;
 
 public class SearchEngine extends Thread {
 	/**
-	 * Конвейер
+	 * РљРѕРЅРІРµР№РµСЂ
 	 */
 	private Conveyor conveyor = null;
 	/**
-	 * Выборка с примерами
+	 * Р’С‹Р±РѕСЂРєР° СЃ РїСЂРёРјРµСЂР°РјРё
 	 */
 	private double[][] samples = null;
 	
 
 	/**
-	 * Конструктор
-	 * @param conveyor конвейер
-	 * @param samples выборка с примерами
+	 * РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	 * @param conveyor РєРѕРЅРІРµР№РµСЂ
+	 * @param samples РІС‹Р±РѕСЂРєР° СЃ РїСЂРёРјРµСЂР°РјРё
 	 */
 	public SearchEngine(Conveyor conveyor, double[][] samples) {
 		this.conveyor = conveyor;
@@ -52,7 +52,7 @@ public class SearchEngine extends Thread {
 	
 
 	/**
-	 * Параллельные вычисления
+	 * РџР°СЂР°Р»Р»РµР»СЊРЅС‹Рµ РІС‹С‡РёСЃР»РµРЅРёСЏ
 	 */
 	public void run() {
 		Store store = this.conveyor.getStore();

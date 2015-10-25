@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java/JPrediction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/VMR.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/kernelmachines/BigKernelMachine.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/kernelmachines/KernelMachine.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/kernelmachines/PairsKernelMachine.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/kernelmachines/SimpleKernelMachine.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/normsetters/NormSetter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/normsetters/SimpleNormSetter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/parsers/Parser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/separators/Separator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/testers/SimpleTester.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/testers/Tester.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/testers/tools/Conveyor.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/testers/tools/SearchEngine.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/testers/tools/Store.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/tools/Accounting.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/vectormachines/BrownRobinsonReshetovAlgorithm.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/libvmr/vectormachines/VectorMachine.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/diagnosis.data" charset="US-ASCII" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

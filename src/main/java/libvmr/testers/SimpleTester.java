@@ -22,7 +22,7 @@ package libvmr.testers;
 import libvmr.*;
 
 /**
- * Простой тестер
+ * РџСЂРѕСЃС‚РѕР№ С‚РµСЃС‚РµСЂ
  * @author Yury V. Reshetov
  * @version 3.00
  */
@@ -31,10 +31,10 @@ public class SimpleTester implements Tester {
 	
 
 	/**
-	 * Если следующая векторная машина лучше
-	 * @param vmcurrent текущая векторная машина
-	 * @param vmnext следующая векторная машина
-	 * @return лучше?
+	 * Р•СЃР»Рё СЃР»РµРґСѓСЋС‰Р°СЏ РІРµРєС‚РѕСЂРЅР°СЏ РјР°С€РёРЅР° Р»СѓС‡С€Рµ
+	 * @param vmcurrent С‚РµРєСѓС‰Р°СЏ РІРµРєС‚РѕСЂРЅР°СЏ РјР°С€РёРЅР°
+	 * @param vmnext СЃР»РµРґСѓСЋС‰Р°СЏ РІРµРєС‚РѕСЂРЅР°СЏ РјР°С€РёРЅР°
+	 * @return Р»СѓС‡С€Рµ?
 	 */
 	@Override
 	public boolean isBestNextVectorMachine(VMR vmcurrent,

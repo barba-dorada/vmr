@@ -187,7 +187,7 @@ public class JPrediction extends Frame {
 		filemenu.add(exitmenuitem);
 		Menu about = new Menu("About ...");
 		MenuItem copyright = new MenuItem(
-				"CopyRight (с) 2014, Yury V. Reshetov");
+				"CopyRight (СЃ) 2014, Yury V. Reshetov");
 		MenuItem licencse = new MenuItem("General Public License version 3");
 		MenuItem siteurl = new MenuItem("Help online ...");
 		siteurl.setActionCommand("link");
@@ -199,7 +199,7 @@ public class JPrediction extends Frame {
 					d.browse(new URI(String.format(
 							"https://sourceforge.net/p/libvmr/wiki/Home",
 							URLEncoder
-									.encode("запрос с кучей пробелов", "UTF8"))));
+									.encode("Р·Р°РїСЂРѕСЃ СЃ РєСѓС‡РµР№ РїСЂРѕР±РµР»РѕРІ", "UTF8"))));
 				} catch (IOException ioe) {
 					ioe.printStackTrace();
 				} catch (URISyntaxException use) {
@@ -216,7 +216,7 @@ public class JPrediction extends Frame {
 
 					d.browse(new URI(String.format(
 							"https://sourceforge.net/p/libvmr/code", URLEncoder
-									.encode("запрос с кучей пробелов", "UTF8"))));
+									.encode("Р·Р°РїСЂРѕСЃ СЃ РєСѓС‡РµР№ РїСЂРѕР±РµР»РѕРІ", "UTF8"))));
 				} catch (IOException ioe) {
 					ioe.printStackTrace();
 				} catch (URISyntaxException use) {

@@ -24,7 +24,7 @@ import libvmr.tools.*;
 
 
 /**
- * Парное ядерное преобразование
+ * РџР°СЂРЅРѕРµ СЏРґРµСЂРЅРѕРµ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ
  * @author Yury V. Reshetov
  * @version 3.01
  */
@@ -34,25 +34,25 @@ public class PairsKernelMachine implements KernelMachine {
 	private static final long serialVersionUID = 301L;
 
 	/**
-	 * Экземпляр класса для учёта используемых переменных
+	 * Р­РєР·РµРјРїР»СЏСЂ РєР»Р°СЃСЃР° РґР»СЏ СѓС‡С‘С‚Р° РёСЃРїРѕР»СЊР·СѓРµРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
 	 */
 	private Accounting accounting = null;
 
 	private String[] variables = null;
 
 	/**
-	 * Возвращает идентификаторы используемых переменных
+	 * Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂС‹ РёСЃРїРѕР»СЊР·СѓРµРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
 	 * 
-	 * @return идентификаторы переменных
+	 * @return РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂС‹ РїРµСЂРµРјРµРЅРЅС‹С…
 	 */
 	public String[] getVariables() {
 		return this.variables;
 	}
 
 	/**
-	 * Преобразовать двумерный массив данных
+	 * РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РґРІСѓРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ РґР°РЅРЅС‹С…
 	 * 
-	 * @return преобразованный массив
+	 * @return РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ
 	 */
 	public double[][] getTransformData(double[][] samples) {
 		String[] tempvariables = new String[samples[0].length + 1];
@@ -93,7 +93,7 @@ public class PairsKernelMachine implements KernelMachine {
 			n = 0;
 			for (int i = 0; i < (samples[0].length + 1); i++) {
 				for (int j = 0; j < (samples[0].length + 1); j++) {
-					// Проверка наличия дубликатов
+					// РџСЂРѕРІРµСЂРєР° РЅР°Р»РёС‡РёСЏ РґСѓР±Р»РёРєР°С‚РѕРІ
 					if (j >= i) {
 						if ((i > 0) && (i == j)) {
 							result[k][n] = 2d * tempresult[k][i] * tempresult[k][j] - 1d;
@@ -109,9 +109,9 @@ public class PairsKernelMachine implements KernelMachine {
 	}
 
 	/**
-	 * Преобразовать одномерный массив
+	 * РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РѕРґРЅРѕРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ
 	 * 
-	 * @return одномерный массив
+	 * @return РѕРґРЅРѕРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ
 	 */
 	public double[] getTransformData(double[] sample) {
 
@@ -126,7 +126,7 @@ public class PairsKernelMachine implements KernelMachine {
 		int n = 0;
 		for (int i = 0; i < (sample.length + 1); i++) {
 			for (int j = 0; j < (sample.length + 1); j++) {
-				// Проверка наличия дубликатов
+				// РџСЂРѕРІРµСЂРєР° РЅР°Р»РёС‡РёСЏ РґСѓР±Р»РёРєР°С‚РѕРІ
 				if (j >= i) {
 					if ((i > 0) && (i == j)) {
 						result[n] = 2d * tempresult[i] * tempresult[j] - 1d;
@@ -141,8 +141,8 @@ public class PairsKernelMachine implements KernelMachine {
 	}
 	
 	/**
-	 * Вернуть экземпляр класса учёта используемых переменных
-	 * @return Экземпляр класса учёта используемых переменных
+	 * Р’РµСЂРЅСѓС‚СЊ СЌРєР·РµРјРїР»СЏСЂ РєР»Р°СЃСЃР° СѓС‡С‘С‚Р° РёСЃРїРѕР»СЊР·СѓРµРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
+	 * @return Р­РєР·РµРјРїР»СЏСЂ РєР»Р°СЃСЃР° СѓС‡С‘С‚Р° РёСЃРїРѕР»СЊР·СѓРµРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
 	 */
 	@Override
 	public Accounting getAccounting() {

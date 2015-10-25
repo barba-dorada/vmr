@@ -23,7 +23,7 @@ import libvmr.tools.Accounting;
 
 
 /**
- * Простое ядерное преобразование
+ * РџСЂРѕСЃС‚РѕРµ СЏРґРµСЂРЅРѕРµ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ
  * @author Yury V. Reshetov
  * @version 3.01
  */
@@ -32,23 +32,23 @@ public class SimpleKernelMachine implements KernelMachine {
 	private static final long serialVersionUID = 301L;
 
 	/**
-	 * Экземпляр класса для учёта используемых переменных
+	 * Р­РєР·РµРјРїР»СЏСЂ РєР»Р°СЃСЃР° РґР»СЏ СѓС‡С‘С‚Р° РёСЃРїРѕР»СЊР·СѓРµРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
 	 */
 	private Accounting accounting = null;
 	
 	private String[] variables = null;
 	
 	/**
-	 * Возвращает идентификаторы используемых переменных
-	 * @return идентификаторы переменных
+	 * Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂС‹ РёСЃРїРѕР»СЊР·СѓРµРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
+	 * @return РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂС‹ РїРµСЂРµРјРµРЅРЅС‹С…
 	 */
 	public String[] getVariables() {
 		return this.variables;
 	}
 	
 	/**
-	 * Преобразовать двумерный массив данных
-	 * @return преобразованный массив
+	 * РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РґРІСѓРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ РґР°РЅРЅС‹С…
+	 * @return РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ
 	 */
     public double[][] getTransformData(double[][] samples) {
     	this.variables = new String[samples[0].length + 1];
@@ -69,8 +69,8 @@ public class SimpleKernelMachine implements KernelMachine {
     }
 
 	/**
-	 * Преобразовать одномерный массив
-	 * @return одномерный массив
+	 * РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РѕРґРЅРѕРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ
+	 * @return РѕРґРЅРѕРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ
 	 */
     public double[] getTransformData(double[] sample) {
     	
@@ -85,8 +85,8 @@ public class SimpleKernelMachine implements KernelMachine {
     }
 
 	/**
-	 * Вернуть экземпляр класса учёта используемых переменных
-	 * @return Экземпляр класса учёта используемых переменных
+	 * Р’РµСЂРЅСѓС‚СЊ СЌРєР·РµРјРїР»СЏСЂ РєР»Р°СЃСЃР° СѓС‡С‘С‚Р° РёСЃРїРѕР»СЊР·СѓРµРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
+	 * @return Р­РєР·РµРјРїР»СЏСЂ РєР»Р°СЃСЃР° СѓС‡С‘С‚Р° РёСЃРїРѕР»СЊР·СѓРµРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
 	 */
 	@Override
 	public Accounting getAccounting() {

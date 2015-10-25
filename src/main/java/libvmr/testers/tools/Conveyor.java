@@ -24,29 +24,29 @@ package libvmr.testers.tools;
 
 
 /**
- * Конвеер - синхронизатор
+ * РљРѕРЅРІРµРµСЂ - СЃРёРЅС…СЂРѕРЅРёР·Р°С‚РѕСЂ
  * @author Yury V. Reshetov
  * @version 3.00
  */
 public class Conveyor {
 	
 	/**
-	 * Число 
+	 * Р§РёСЃР»Рѕ 
 	 */
 	private int number = -1;
 	/**
-	 * Флаг готовности 
-	 * Принимает истинное значение, если число находится на хранении
+	 * Р¤Р»Р°Рі РіРѕС‚РѕРІРЅРѕСЃС‚Рё 
+	 * РџСЂРёРЅРёРјР°РµС‚ РёСЃС‚РёРЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ, РµСЃР»Рё С‡РёСЃР»Рѕ РЅР°С…РѕРґРёС‚СЃСЏ РЅР° С…СЂР°РЅРµРЅРёРё
 	 */
 	private boolean ready = false;
 	/*
-	 * Хранилище лучшей модели векторной машины
+	 * РҐСЂР°РЅРёР»РёС‰Рµ Р»СѓС‡С€РµР№ РјРѕРґРµР»Рё РІРµРєС‚РѕСЂРЅРѕР№ РјР°С€РёРЅС‹
 	 */
 	private Store store = new Store();
 	
 	/** 
-	 * Передача числа
-	 * @return число
+	 * РџРµСЂРµРґР°С‡Р° С‡РёСЃР»Р°
+	 * @return С‡РёСЃР»Рѕ
 	 */
 	synchronized public int getNumber() {
 		try {
@@ -63,8 +63,8 @@ public class Conveyor {
 	}
 	
 	/**
-	 * Приём числа
-	 * @param number число
+	 * РџСЂРёС‘Рј С‡РёСЃР»Р°
+	 * @param number С‡РёСЃР»Рѕ
 	 */
 	synchronized public void setNumber(int number) {
 		if (ready) {
@@ -79,7 +79,7 @@ public class Conveyor {
 	}
 	
 	/**
-	 * @return Хранилище
+	 * @return РҐСЂР°РЅРёР»РёС‰Рµ
 	 */
 	public Store getStore() {
 		return store;

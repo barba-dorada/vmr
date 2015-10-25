@@ -23,7 +23,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Учёт используемых переменных
+ * РЈС‡С‘С‚ РёСЃРїРѕР»СЊР·СѓРµРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
  * @author Yury V. Reshetov
  * @version 3.01
  */
@@ -33,14 +33,14 @@ public class Accounting implements Serializable {
 	private static final long serialVersionUID = 301L;
 
 	/**
-	 * Массив учёта используемых переменных
+	 * РњР°СЃСЃРёРІ СѓС‡С‘С‚Р° РёСЃРїРѕР»СЊР·СѓРµРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
 	 */
 	private boolean[][] account = null;
 	
 	/**
-	 * Конструктор
-	 * @param predictors Количество предикторов
-	 * @param variables Количество переменных
+	 * РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	 * @param predictors РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРµРґРёРєС‚РѕСЂРѕРІ
+	 * @param variables РљРѕР»РёС‡РµСЃС‚РІРѕ РїРµСЂРµРјРµРЅРЅС‹С…
 	 */
 	public Accounting(int predictors, int variables) {
 		this.account = new boolean[predictors][variables];
@@ -50,25 +50,25 @@ public class Accounting implements Serializable {
 	}
 	
 	/**
-	 * Поставить переменную на учёт
-	 * @param predictorsindex Индекс предиктора в котором используется переменная
-	 * @param variablesindex Индекс используемой переменной
+	 * РџРѕСЃС‚Р°РІРёС‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ РЅР° СѓС‡С‘С‚
+	 * @param predictorsindex РРЅРґРµРєСЃ РїСЂРµРґРёРєС‚РѕСЂР° РІ РєРѕС‚РѕСЂРѕРј РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРµСЂРµРјРµРЅРЅР°СЏ
+	 * @param variablesindex РРЅРґРµРєСЃ РёСЃРїРѕР»СЊР·СѓРµРјРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№
 	 */
 	public void setValue(int predictorsindex, int variablesindex) {
 		this.account[predictorsindex][variablesindex] = true;
 	}
 	
 	/**
-	 * Очистка неиспользуемого предиктора
-	 * @param index Индекс предиктора
+	 * РћС‡РёСЃС‚РєР° РЅРµРёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ РїСЂРµРґРёРєС‚РѕСЂР°
+	 * @param index РРЅРґРµРєСЃ РїСЂРµРґРёРєС‚РѕСЂР°
 	 */
 	public void clearPredictor(int index) {
 		Arrays.fill(account[index], false);
 	}
 	
 	/**
-	 * Поиск используемой переменной в предикторах
-	 * @param index Индекс используемой переменной
+	 * РџРѕРёСЃРє РёСЃРїРѕР»СЊР·СѓРµРјРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№ РІ РїСЂРµРґРёРєС‚РѕСЂР°С…
+	 * @param index РРЅРґРµРєСЃ РёСЃРїРѕР»СЊР·СѓРµРјРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№
 	 * @return
 	 */
 	public boolean isUseVariable(int index) {

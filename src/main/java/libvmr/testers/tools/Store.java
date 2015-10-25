@@ -24,36 +24,36 @@ import libvmr.testers.SimpleTester;
 import libvmr.testers.Tester;
 
 /**
- * Хранилище - чистилище
+ * РҐСЂР°РЅРёР»РёС‰Рµ - С‡РёСЃС‚РёР»РёС‰Рµ
  * @author Yury V. Reshetov
  * @version 3.01
  */
 public class Store {
 	
 	/**
-	 * Тестер
+	 * РўРµСЃС‚РµСЂ
 	 */
 	private Tester tester = null;
 		
 
 	/**
-	 * Векторная машина Решетова
+	 * Р’РµРєС‚РѕСЂРЅР°СЏ РјР°С€РёРЅР° Р РµС€РµС‚РѕРІР°
 	 */
 	public VMR vmr = null;
 	/**
-	 * Счётчик
+	 * РЎС‡С‘С‚С‡РёРє
 	 */
 	public int counter = 0;
 	
 	/**
-	 * @param Задаёт тестер
+	 * @param Р—Р°РґР°С‘С‚ С‚РµСЃС‚РµСЂ
 	 */
 	public void setTester(Tester tester) {
 		this.tester = tester;
 	}
 	
 	/** 
-	 * @return Состояние счётчика
+	 * @return РЎРѕСЃС‚РѕСЏРЅРёРµ СЃС‡С‘С‚С‡РёРєР°
 	 */
 	synchronized public int getCounter() {
 		try {
@@ -69,8 +69,8 @@ public class Store {
 	}
 	
 	/**
-	 * Приём векторной машины в хранилище
-	 * @param vmr Векторная машина Решетова
+	 * РџСЂРёС‘Рј РІРµРєС‚РѕСЂРЅРѕР№ РјР°С€РёРЅС‹ РІ С…СЂР°РЅРёР»РёС‰Рµ
+	 * @param vmr Р’РµРєС‚РѕСЂРЅР°СЏ РјР°С€РёРЅР° Р РµС€РµС‚РѕРІР°
 	 */
 	synchronized public void setVMR(VMR vmr) {
 		if (this.vmr == null) {
