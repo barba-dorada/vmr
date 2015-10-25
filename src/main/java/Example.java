@@ -27,7 +27,6 @@ public class Example {
                 {1, 1},
         };
 
-
         // Triple copy of the data
         // For big data reproduce copies are not necessary
         double[][] patterns = new double[data.length * 3][data[0].length];
@@ -48,10 +47,7 @@ public class Example {
             return;
         }
 
-
         printResult(vmr, testData);
-
-
     }
 
     private static void printResult(VMR vmr, double[][] testData) {

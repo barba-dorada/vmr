@@ -42,17 +42,17 @@ public class VMR implements Serializable {
 	/**
 	 * Нормировщик
 	 */
-	private NormSetter normsetter = null;
+	private NormSetter normSetter = null;
 	
 	/**
 	 * Обучающий алгоритм для искусственного нейрона
 	 */
-	private VectorMachine vectormachine = null;
+	private VectorMachine vectorMachine = null;
 
 	/**
 	 * Ядерное преобразование
 	 */
-	private KernelMachine kerneltrick = null;
+	private KernelMachine kernelTrick = null;
 	/**
 	 * Весовые коэффициенты нейронной сети
 	 */
@@ -60,19 +60,19 @@ public class VMR implements Serializable {
 	/**
 	 * Счётчик истинноположительных примеров
 	 */
-	private int truepositive = 0;
+	private int truePositive = 0;
 	/**
 	 * Счётчик истинноотрицательных примеров
 	 */
-	private int truenegative = 0;
+	private int trueNegative = 0;
 	/**
 	 * Счётчик ложноположительных примеров
 	 */
-	private int falsepositive = 0;
+	private int falsePositive = 0;
 	/**
 	 * Счётчик ложноотрицательных примеров
 	 */
-	private int falsenegative = 0;
+	private int falseNegative = 0;
 	/**
 	 * Наименования переменных
 	 */
@@ -95,8 +95,8 @@ public class VMR implements Serializable {
 	/**
 	 * Количество ошибок вне обучающей выборки
 	 */
-	private int outsampleerrors = 0;
-	
+	private int outSampleErrors = 0;
+
 	/**
 	 * Количество примеров вне обучающей выборки, по которым не учитывается статистика
 	 */
@@ -106,21 +106,21 @@ public class VMR implements Serializable {
 	 * @param Экземпляр класса для обучающего алгоритма
 	 */
 	public void setTrainer(VectorMachine trainer) {
-		this.vectormachine = trainer;
+		this.vectorMachine = trainer;
 	}
 
 	/**
 	 * @param Экземпляр класса для нормировщика
 	 */
-	public void setNormsetter(NormSetter normsetter) {
-		this.normsetter = normsetter;
+	public void setNormSetter(NormSetter normSetter) {
+		this.normSetter = normSetter;
 	}
 
 	/**
 	 * @return Количество ошибок вне обучающей выборки
 	 */
 	public int getOutSampleErrors() {
-		return outsampleerrors;
+		return outSampleErrors;
 	}
 
 	/**
@@ -140,7 +140,7 @@ public class VMR implements Serializable {
 	 *            ядерное преобразование
 	 */
 	public void setKernelTrick(KernelMachine trick) {
-		this.kerneltrick = trick;
+		this.kernelTrick = trick;
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class VMR implements Serializable {
 	 * @return количество истинноположительных исходов
 	 */
 	public int getTruePositives() {
-		return this.truepositive;
+		return this.truePositive;
 	}
 
 	/**
@@ -179,7 +179,7 @@ public class VMR implements Serializable {
 	 * @return количество истинноотрицательных исходов
 	 */
 	public int getTrueNegatives() {
-		return this.truenegative;
+		return this.trueNegative;
 	}
 
 	/**
@@ -188,7 +188,7 @@ public class VMR implements Serializable {
 	 * @return количество ложноположительных исходов
 	 */
 	public int getFalsePositives() {
-		return this.falsepositive;
+		return this.falsePositive;
 	}
 
 	/**
@@ -197,7 +197,7 @@ public class VMR implements Serializable {
 	 * @return количество ложноноотрицательных исходов
 	 */
 	public int getFalseNegatives() {
-		return this.falsenegative;
+		return this.falseNegative;
 	}
 
 	/**
@@ -212,88 +212,88 @@ public class VMR implements Serializable {
 		Separator separator = new Separator(samples);
 		this.remainder = separator.getFullTestSamples().length - separator.getStatisticalTestSamples().length;
 
-		if (this.kerneltrick == null) {
+		if (this.kernelTrick == null) {
 			if (samples[0].length > 11) {
 				if (samples[0].length > 45) {
-					this.kerneltrick = new SimpleKernelMachine();
+					this.kernelTrick = new SimpleKernelMachine();
 				} else {
-					this.kerneltrick = new PairsKernelMachine();
+					this.kernelTrick = new PairsKernelMachine();
 				}
 			} else {
-				this.kerneltrick = new BigKernelMachine();
+				this.kernelTrick = new BigKernelMachine();
 			}
 		}
 		
-		if (this.normsetter == null) {
-			this.normsetter = new SimpleNormSetter();
+		if (this.normSetter == null) {
+			this.normSetter = new SimpleNormSetter();
 		}
 		
 		
-		double[][] invariantsamples = this.getInvariant(this.kerneltrick.getTransformData(
-				this.normsetter.normSetting(separator.getTrainSamples())));
+		double[][] invariantSamples = this.getInvariant(this.kernelTrick.getTransformData(
+				this.normSetter.normSetting(separator.getTrainSamples())));
 		
-		this.variables = this.kerneltrick.getVariables();
+		this.variables = this.kernelTrick.getVariables();
 		
 	
 		
-		if (this.vectormachine == null) {
-			this.vectormachine = new BrownRobinsonReshetovAlgorithm();
+		if (this.vectorMachine == null) {
+			this.vectorMachine = new BrownRobinsonReshetovAlgorithm();
 		}
 		
 		
-		this.weights = this.vectormachine.train(invariantsamples, variables, this.kerneltrick.getAccounting());
+		this.weights = this.vectorMachine.train(invariantSamples, variables, this.kernelTrick.getAccounting());
 		
 
 		// Вычисляем показатель Решетова
-		double[][] fulltestsamples = separator.getStatisticalTestSamples();
+		double[][] fullTestSamples = separator.getStatisticalTestSamples();
 		this.indicator = 0d;
-		for (int i = 0; i < fulltestsamples.length; i++) {
-			double testresult = this.getDecision(fulltestsamples[i]);
-			double ideal = 2d * (fulltestsamples[i][fulltestsamples[0].length - 1]) - 1d;
-			double scores = testresult * ideal;
+		for (int i = 0; i < fullTestSamples.length; i++) {
+			double testResult = this.getDecision(fullTestSamples[i]);
+			double ideal = 2d * (fullTestSamples[i][fullTestSamples[0].length - 1]) - 1d;
+			double scores = testResult * ideal;
 			this.indicator = this.indicator + scores;
 			if (scores < 0) {
-				this.outsampleerrors++;
+				this.outSampleErrors++;
 			}
 		}
 
 		{
-			double weightssum = 0d;
+			double weightsSum = 0d;
 			for (int i = 0; i < this.weights.length; i++) {
-				weightssum = weightssum + Math.abs(this.weights[i]);
+				weightsSum = weightsSum + Math.abs(this.weights[i]);
 			}
-			this.indicator = this.indicator / weightssum;
+			this.indicator = this.indicator / weightsSum;
 		}
 
 		// Вычисляем статистические показатели
-		double[][] testsamples = separator.getStatisticalTestSamples();
-		for (int i = 0; i < testsamples.length; i++) {
-			double testresult = this.getDecision(testsamples[i]);
-			double ideal = 2d * (testsamples[i][testsamples[0].length - 1]) - 1d;
+		double[][] testSamples = separator.getStatisticalTestSamples();
+		for (int i = 0; i < testSamples.length; i++) {
+			double testResult= this.getDecision(testSamples[i]);
+			double ideal = 2d * (testSamples[i][testSamples[0].length - 1]) - 1d;
 			// Подводим итоги
-			if (testresult * ideal > 0) {
+			if (testResult * ideal > 0) {
 				if (ideal > 0) {
 					// Инкрементируем количество истинноположительных примеров
-					this.truepositive++;
+					this.truePositive++;
 				} else {
 					// Инкрементируем количество истинноотрицательных примеров
-					this.truenegative++;
+					this.trueNegative++;
 				}
 			} else {
-				if (testresult > 0) {
+				if (testResult > 0) {
 					// Инкрементируем количество ложноположительных примеров
-					this.falsepositive++;
+					this.falsePositive++;
 				} else {
 					// Инкрементируем количество ложноотрицательных примеров
-					this.falsenegative++;
+					this.falseNegative++;
 				}
 			}
 		}
 
-		double tpd = (double) this.truepositive;
-		double fpd = (double) this.falsepositive;
-		double tnd = (double) this.truenegative;
-		double fnd = (double) this.falsenegative;
+		double tpd = (double) this.truePositive;
+		double fpd = (double) this.falsePositive;
+		double tnd = (double) this.trueNegative;
+		double fnd = (double) this.falseNegative;
 		// Вычисляем чувствительность
 		this.se = tpd / (tpd + fpd);
 		// Вычисляем специфичность
@@ -325,10 +325,7 @@ public class VMR implements Serializable {
 	 * @return результат
 	 */
 	public double getDecision(double[] pattern) {
-		
-		
-
-		double[] sample = this.kerneltrick.getTransformData(this.normsetter.normSetting(pattern));
+		double[] sample = this.kernelTrick.getTransformData(this.normSetter.normSetting(pattern));
 
 		double result = 0d;
 		for (int i = 0; i < sample.length; i++) {
@@ -369,7 +366,7 @@ public class VMR implements Serializable {
 	 */
 	private double[][] getInvariant(double[][] sample) {
 		double[][] result = new double[sample.length][sample[0].length];
-		double[] ideals = this.normsetter.getIdeals();
+		double[] ideals = this.normSetter.getIdeals();
 		for (int i = 0; i < result.length; i++) {
 			for (int j = 0; j < result[0].length; j++) {
 				result[i][j] = sample[i][j] / ideals[i];
@@ -384,15 +381,15 @@ public class VMR implements Serializable {
 
 		result = result + " * The quality of modeling in out of sample:\n";
 		result = result + " *\n";
-		result = result + " * TruePositives: " + this.truepositive + "\n";
-		result = result + " * TrueNegatives: " + this.truenegative + "\n";
-		result = result + " * FalsePositives: " + this.falsepositive + "\n";
-		result = result + " * FalseNegatives: " + this.falsenegative + "\n";
-		int total = this.truepositive + this.truenegative + this.falsepositive + this.falsenegative;
+		result = result + " * TruePositives: " + this.truePositive + "\n";
+		result = result + " * TrueNegatives: " + this.trueNegative + "\n";
+		result = result + " * FalsePositives: " + this.falsePositive + "\n";
+		result = result + " * FalseNegatives: " + this.falseNegative + "\n";
+		int total = this.truePositive + this.trueNegative + this.falsePositive + this.falseNegative;
 		result = result + " * Total patterns in out of samples with statistics: " + total + "\n";
 		result = result + " * The remainder patterns in out of samples without the statistics: " + this.remainder + "\n";
-		result = result + " * Total errors in out of sample: " + this.outsampleerrors + "\n";
-		result = result + " * Sensitivity of generalization abiliy: " + this.se
+		result = result + " * Total errors in out of sample: " + this.outSampleErrors + "\n";
+		result = result + " * Sensitivity of generalization ability: " + this.se
 				+ "%\n";
 		result = result + " * Specificity of generalization ability: "
 				+ this.sp + "%\n";
@@ -401,7 +398,7 @@ public class VMR implements Serializable {
 		result = result + "*/\n";
 
 		String formula = "double decision = ";
-		if (this.vectormachine.isConstantNonZero()) {
+		if (this.vectorMachine.isConstantNonZero()) {
 			formula = formula +  + this.weights[0];
 		}
 		for (int i = 1; i < this.variables.length; i++) {
@@ -432,7 +429,7 @@ public class VMR implements Serializable {
 			}
 		}
 		*/
-		result = this.normsetter.NormSettingToString(this.kerneltrick.getAccounting(), result);
+		result = this.normSetter.NormSettingToString(this.kernelTrick.getAccounting(), result);
 		result = result + formula + ";\n";
 		return result;
 	}

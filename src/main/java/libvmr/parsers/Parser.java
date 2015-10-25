@@ -48,8 +48,7 @@ public class Parser {
 	/**
 	 * Парсинг
 	 * 
-	 * @param file
-	 *            Имя входного файла
+	 * @param file Имя входного файла
 	 * @return Массив обучающей выборки
 	 */
 	public double[][] parsing(File file) {
@@ -70,15 +69,15 @@ public class Parser {
 			String[] rows = strings.split("\n");
 			if (rows.length > 2) {
 				String[] names = rows[0].split(";");
-				String[] unitstext = rows[1].split(";");
+				String[] unitsText = rows[1].split(";");
 				String[] temp = rows[2].split(";");
 				if (((names.length + 1) == temp.length)
-						&& (names.length == unitstext.length)) {
+						&& (names.length == unitsText.length)) {
 					this.ids = new String[names.length - 1];
 					this.units = new String[names.length - 1];
 					for (int i = 1; i < names.length; i++) {
 						this.ids[i - 1] = names[i].replace('\"', ' ').trim();
-						this.units[i - 1] = unitstext[i].replace('\"', ' ')
+						this.units[i - 1] = unitsText[i].replace('\"', ' ')
 								.trim();
 					}
 				}
@@ -86,8 +85,8 @@ public class Parser {
 				for (int i = 2; i < rows.length; i++) {
 					String[] row = rows[i].split(";");
 					if (row.length != temp.length) {
-						int linenumber = i + 1;
-						this.error = "Error in " + linenumber + " line\nFile: "
+						int lineNumber = i + 1;
+						this.error = "Error in " + lineNumber + " line\nFile: "
 								+ file.getName();
 						return null;
 					} else {
