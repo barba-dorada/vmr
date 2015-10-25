@@ -115,11 +115,11 @@ public class PairsKernelMachine implements KernelMachine {
 	 */
 	public double[] getTransformData(double[] sample) {
 
-		double tempresult[] = new double[sample.length + 1];
+		double tempResult[] = new double[sample.length + 1];
 		for (int i = 0; i < sample.length; i++) {
-			tempresult[0] = 1d;
+			tempResult[0] = 1d;
 			for (int j = 0; j < sample.length; j++) {
-				tempresult[j + 1] = sample[j];
+				tempResult[j + 1] = sample[j];
 			}
 		}
 		double result[] = new double[(sample.length + 1) * (sample.length + 2) / 2];
@@ -129,9 +129,9 @@ public class PairsKernelMachine implements KernelMachine {
 				// Проверка наличия дубликатов
 				if (j >= i) {
 					if ((i > 0) && (i == j)) {
-						result[n] = 2d * tempresult[i] * tempresult[j] - 1d;
+						result[n] = 2d * tempResult[i] * tempResult[j] - 1d;
 					} else {
-						result[n] = tempresult[i] * tempresult[j];
+						result[n] = tempResult[i] * tempResult[j];
 					}
 					n++;
 				}

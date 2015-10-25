@@ -36,24 +36,24 @@ public interface KernelMachine extends Serializable {
 	 * Преобразовать двумерный массив
 	 * @return преобразованный массив
 	 */
-    public double[][] getTransformData(double[][] samples);
+    double[][] getTransformData(double[][] samples);
 
 	/**
 	 * Преобразовать одномерный массив
 	 * @return преобразованный массив
 	 */
-    public double[] getTransformData(double[] sample);
+    double[] getTransformData(double[] sample);
     
 	/**
 	 * Возвращает идентификаторы используемых переменных
 	 * @return идентификаторы переменных
 	 */
-	public String[] getVariables();
+	String[] getVariables();
 	
 	/**
 	 * Вернуть экземпляр класса учёта используемых переменных
 	 * @return Экземпляр класса учёта используемых переменных
 	 */
-	public Accounting getAccounting();
+	Accounting getAccounting();
 
 }

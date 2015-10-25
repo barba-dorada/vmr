@@ -32,21 +32,21 @@ public class SimpleTester implements Tester {
 
 	/**
 	 * Если следующая векторная машина лучше
-	 * @param vmcurrent текущая векторная машина
-	 * @param vmnext следующая векторная машина
+	 * @param vmCurrent текущая векторная машина
+	 * @param vmNext следующая векторная машина
 	 * @return лучше?
 	 */
 	@Override
-	public boolean isBestNextVectorMachine(VMR vmcurrent,
-			VMR vmnext) {
-		int errorscurrent = vmcurrent.getOutSampleErrors();
-		int errorsnew = vmnext.getOutSampleErrors();
-		if ((vmnext.getIndicatorByReshetov() > vmcurrent.getIndicatorByReshetov()) && (vmnext.getGeneralizationAbility() > 0d)) {
-			if (errorscurrent >= errorsnew) {
+	public boolean isBestNextVectorMachine(VMR vmCurrent,
+			VMR vmNext) {
+		int errorsCurrent = vmCurrent.getOutSampleErrors();
+		int errorsNew = vmNext.getOutSampleErrors();
+		if ((vmNext.getIndicatorByReshetov() > vmCurrent.getIndicatorByReshetov()) && (vmNext.getGeneralizationAbility() > 0d)) {
+			if (errorsCurrent >= errorsNew) {
 				return true;
 			}
 		} else {
-			if (errorscurrent > errorsnew) {
+			if (errorsCurrent > errorsNew) {
 				return true;
 			}
 		}

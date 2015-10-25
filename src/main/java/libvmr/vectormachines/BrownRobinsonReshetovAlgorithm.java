@@ -36,7 +36,7 @@ public class BrownRobinsonReshetovAlgorithm implements VectorMachine {
 	/**
 	 * Не является ли константа редуцированной?
 	 */
-	private boolean constantnonzero = false;
+	private boolean constantNonZero = false;
 
 	/**
 	 * Генератор случайных чисел
@@ -51,7 +51,7 @@ public class BrownRobinsonReshetovAlgorithm implements VectorMachine {
 	 * @return Не является ли константа редуцированной?
 	 */
 	public boolean isConstantNonZero() {
-		return constantnonzero;
+		return constantNonZero;
 	}
 
 	/**
@@ -67,75 +67,75 @@ public class BrownRobinsonReshetovAlgorithm implements VectorMachine {
 	@Override
 	public double[] train(double[][] samples, String[] variables,
 			Accounting accounting) {
-		double[][] doublesamples = this.doublling(samples);
+		double[][] doubleSamples = this.doublling(samples);
 
 		// Количество строк
-		int rows = doublesamples.length;
+		int rows = doubleSamples.length;
 		// Количество столбцов
-		int columns = doublesamples[0].length;
+		int columns = doubleSamples[0].length;
 		// Счётчик для игрока по строкам - оппонента
-		int[] counterrows = new int[rows];
+		int[] counterRows = new int[rows];
 		// Инициализация счётчика
-		Arrays.fill(counterrows, 0);
+		Arrays.fill(counterRows, 0);
 		// Счётчик для игрока по столбцам - генератор гипотез
-		int[] countercolumns = new int[columns];
+		int[] counterColumns = new int[columns];
 		// Инициализация счётчика
-		Arrays.fill(countercolumns, 0);
+		Arrays.fill(counterColumns, 0);
 		// Накопитель для строк
-		double[] rowsadder = new double[rows];
-		Arrays.fill(rowsadder, 0d);
+		double[] rowsAdder = new double[rows];
+		Arrays.fill(rowsAdder, 0d);
 		// Накопитель для столбцов
-		double[] collsadder = new double[columns];
-		Arrays.fill(collsadder, 0d);
+		double[] collsAdder = new double[columns];
+		Arrays.fill(collsAdder, 0d);
 		// Индекс выбранной строки
-		int selectedrow = rand.nextInt(rows);
+		int selectedRow = rand.nextInt(rows);
 		// Индекс выбранного столбца
-		int seletctedcolumn = 0;
+		int seletctedColumn = 0;
 		// Количество холостых итераций
-		int delta = doublesamples[0].length / 2;
+		int delta = doubleSamples[0].length / 2;
 		if (delta == 0) {
 			delta = 1;
 		}
-		for (int u = 0; u < (doublesamples[0].length); u++) {
+		for (int u = 0; u < (doubleSamples[0].length); u++) {
 			if (u == delta) {
 				// После завершения холостых итераций очищаем счётчик столбцов
-				Arrays.fill(countercolumns, 0);
+				Arrays.fill(counterColumns, 0);
 			}
 			for (int t = 0; t < 1000000; t++) {
 				for (int j = 0; j < columns; j++) {
-					collsadder[j] = collsadder[j]
-							+ doublesamples[selectedrow][j];
+					collsAdder[j] = collsAdder[j]
+							+ doubleSamples[selectedRow][j];
 				}
-				seletctedcolumn = 0;
+				seletctedColumn = 0;
 				// Ищем лучший столбец
 				for (int j = 1; j < columns; j++) {
-					if ((collsadder[j] == collsadder[seletctedcolumn])
-							&& (countercolumns[j] < countercolumns[seletctedcolumn])) {
-						seletctedcolumn = j;
+					if ((collsAdder[j] == collsAdder[seletctedColumn])
+							&& (counterColumns[j] < counterColumns[seletctedColumn])) {
+						seletctedColumn = j;
 					}
-					if (collsadder[j] > collsadder[seletctedcolumn]) {
-						seletctedcolumn = j;
+					if (collsAdder[j] > collsAdder[seletctedColumn]) {
+						seletctedColumn = j;
 					}
 				}
 				// Улучшаем гипотезу
-				countercolumns[seletctedcolumn] = countercolumns[seletctedcolumn] + 1;
+				counterColumns[seletctedColumn] = counterColumns[seletctedColumn] + 1;
 				// Ищем пример, наименее соответствующий гипотезе
 				for (int i = 0; i < rows; i++) {
-					rowsadder[i] = rowsadder[i]
-							+ doublesamples[i][seletctedcolumn];
+					rowsAdder[i] = rowsAdder[i]
+							+ doubleSamples[i][seletctedColumn];
 				}
-				selectedrow = 0;
+				selectedRow = 0;
 				for (int i = 1; i < rows; i++) {
-					if ((rowsadder[i] == rowsadder[selectedrow])
-							&& (counterrows[i] < counterrows[selectedrow])) {
-						selectedrow = i;
+					if ((rowsAdder[i] == rowsAdder[selectedRow])
+							&& (counterRows[i] < counterRows[selectedRow])) {
+						selectedRow = i;
 					}
-					if (rowsadder[i] < rowsadder[selectedrow]) {
-						selectedrow = i;
+					if (rowsAdder[i] < rowsAdder[selectedRow]) {
+						selectedRow = i;
 					}
 				}
 				// Увеличиваем счётчик для найденного примера
-				counterrows[selectedrow] = counterrows[selectedrow] + 1;
+				counterRows[selectedRow] = counterRows[selectedRow] + 1;
 			}
 		}
 
@@ -148,7 +148,7 @@ public class BrownRobinsonReshetovAlgorithm implements VectorMachine {
 		double max = 0d;
 		for (int i = 0; i < count; i++) {
 			// Вычисляем разницу счётчика i-го столбца между ЗА и ПРОТИВ
-			result[i] = countercolumns[i] - countercolumns[i + count];
+			result[i] = counterColumns[i] - counterColumns[i + count];
 			// Присваиваем разницу i-му весовому коэффициенту искусственного
 			// нейрона
 			this.weights[i] = result[i];
@@ -159,7 +159,7 @@ public class BrownRobinsonReshetovAlgorithm implements VectorMachine {
 			}
 		}
 
-		this.constantnonzero = Math.abs(result[0]) > 0;
+		this.constantNonZero = Math.abs(result[0]) > 0;
 
 		for (int i = 0; i < count; i++) {
 			// Нормируем весовые коэффициенты искусственного нейрона

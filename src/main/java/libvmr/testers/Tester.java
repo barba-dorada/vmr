@@ -33,9 +33,9 @@ public interface Tester {
 	
 	/**
 	 * Если следующая векторная машина лучше
-	 * @param vmcurrent текущая векторная машина
-	 * @param vmnext следующая векторная машина
+	 * @param vmCurrent текущая векторная машина
+	 * @param vmNext следующая векторная машина
 	 * @return лучше?
 	 */
-	public boolean isBestNextVectorMachine(VMR vmcurrent, VMR vmnext);
+	boolean isBestNextVectorMachine(VMR vmCurrent, VMR vmNext);
 }

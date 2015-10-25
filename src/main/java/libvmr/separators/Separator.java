@@ -38,21 +38,21 @@ public class Separator implements Serializable {
 	/**
 	 * Обучающая выборка
 	 */
-	private double[][] trainsamples = null;
+	private double[][] trainSamples = null;
 	/**
 	 * Тестовая выборка, пригодная только для статистики
 	 */
-	private double[][] testsamples = null;
+	private double[][] testSamples = null;
 	/**
 	 * Полная тестовая выборка
 	 */
-	private double[][] fulltestsamples = null;
+	private double[][] fullTestSamples = null;
 
 	/**
 	 * @return полная тестовая часть
 	 */
 	public double[][] getFullTestSamples() {
-		return this.fulltestsamples;
+		return this.fullTestSamples;
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class Separator implements Serializable {
 	 * @return тестовая часть для статистики
 	 */
 	public double[][] getStatisticalTestSamples() {
-		return this.testsamples;
+		return this.testSamples;
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class Separator implements Serializable {
 	 * @return обучающая часть
 	 */
 	public double[][] getTrainSamples() {
-		return this.trainsamples;
+		return this.trainSamples;
 	}
 
 	/**
@@ -90,39 +90,39 @@ public class Separator implements Serializable {
 		Collections.shuffle(trues);
 		Collections.shuffle(falses);
 
-		int lenmin = Math.min(trues.size(), falses.size());
-		int lenmax = Math.max(trues.size(), falses.size());
+		int lenMin = Math.min(trues.size(), falses.size());
+		int lenMax = Math.max(trues.size(), falses.size());
 		
-		this.fulltestsamples = new double[lenmax][samples[0].length];
+		this.fullTestSamples = new double[lenMax][samples[0].length];
 		
-		lenmax = (lenmax - lenmin) / 2 + lenmin;
+		lenMax = (lenMax - lenMin) / 2 + lenMin;
 
-		this.trainsamples = new double[lenmin][samples[0].length];
-		this.testsamples = new double[lenmax][samples[0].length];
-		for (int i = 0; i < lenmin; i++) {
+		this.trainSamples = new double[lenMin][samples[0].length];
+		this.testSamples = new double[lenMax][samples[0].length];
+		for (int i = 0; i < lenMin; i++) {
 			if ((i % 2) == 0) {
-				this.trainsamples[i] = trues.get(i);
-				this.testsamples[i] = falses.get(i);
-				this.fulltestsamples[i] = falses.get(i);
+				this.trainSamples[i] = trues.get(i);
+				this.testSamples[i] = falses.get(i);
+				this.fullTestSamples[i] = falses.get(i);
 			} else {
-				this.trainsamples[i] = falses.get(i);
-				this.testsamples[i] = trues.get(i);
-				this.fulltestsamples[i] = trues.get(i);
+				this.trainSamples[i] = falses.get(i);
+				this.testSamples[i] = trues.get(i);
+				this.fullTestSamples[i] = trues.get(i);
 			}
 		}
 
-		if (lenmax != lenmin) {
+		if (lenMax != lenMin) {
 			ArrayList<double[]> r = new ArrayList<double[]>();
-			if (trues.size() > lenmin) {
+			if (trues.size() > lenMin) {
 				r = trues;
 			} else {
 				r = falses;
 			}
-			for (int i = lenmin; i < lenmax; i++) {
-				this.testsamples[i] = r.get(i);
+			for (int i = lenMin; i < lenMax; i++) {
+				this.testSamples[i] = r.get(i);
 			}
-			for (int i = lenmin; i < r.size(); i++) {
-				this.fulltestsamples[i] = r.get(i);
+			for (int i = lenMin; i < r.size(); i++) {
+				this.fullTestSamples[i] = r.get(i);
 			}
 		}
 	}

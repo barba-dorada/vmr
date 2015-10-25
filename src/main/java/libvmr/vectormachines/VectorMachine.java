@@ -38,11 +38,11 @@ public interface VectorMachine extends Serializable {
 	 *         - не обладает
 	 * @param accounting учёт используемых входных переменных
 	 */
-	public double[] train(double[][] samples, String[] variables, Accounting accounting);
+	double[] train(double[][] samples, String[] variables, Accounting accounting);
 	
 	/**
 	 * @return Не является ли константа редуцированной?
 	 */
-	public boolean isConstantNonZero();
+	boolean isConstantNonZero();
 
 }

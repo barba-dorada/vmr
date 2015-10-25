@@ -33,7 +33,7 @@ public interface NormSetter extends Serializable {
 	/**
 	 * @return Значения зависимых переменных
 	 */
-	public double[] getIdeals();
+	double[] getIdeals();
 	
 	/**
 	 * Нормировка входных и выходных данных перед запуском алгоритма на обучение
@@ -42,14 +42,14 @@ public interface NormSetter extends Serializable {
 	 * Последний столбец - значение зависимой переменной
 	 * @return
 	 */
-	public double[][] normSetting(double[][] samples);
+	double[][] normSetting(double[][] samples);
 	
 	/**
 	 * Нормировка входных данных после обучения алгоритма
 	 * @param samples входные данные для нормировки: 
 	 * @return нормированные входные данные
 	 */
-	public double[] normSetting(double[] pattern);
+	double[] normSetting(double[] pattern);
 	
 	/**
 	 * Преобразование нормированных данных в текстовый вид
@@ -57,6 +57,6 @@ public interface NormSetter extends Serializable {
 	 * @param result предыдущие результаты в текстовом виде
 	 * @return Нормированные данные в текстовом виде
 	 */
-	public String NormSettingToString(Accounting accounting, String result);
+	String NormSettingToString(Accounting accounting, String result);
 	
 }
