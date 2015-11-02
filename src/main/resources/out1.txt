@@ -1,0 +1,62 @@
+Progress: 100%
+
+/**
+ * The quality of modeling in out of sample:
+ *
+ * TruePositives: 14
+ * TrueNegatives: 25
+ * FalsePositives: 7
+ * FalseNegatives: 12
+ * Total patterns in out of samples with statistics: 58
+ * The remainder patterns in out of samples without the statistics: 6
+ * Total errors in out of sample: 19
+ * Sensitivity of generalization ability: 66.66666666666666%
+ * Specificity of generalization ability: 67.56756756756756%
+ * Generalization ability: 34.234234234234236%
+ * Indicator by Reshetov: 0.12141473936541751
+*/
+double x0 = 2.0 * (v0 - 0.0) / 5.0 - 1.0;
+double x1 = 2.0 * (v1 + 116992.0) / 299102.0 - 1.0;
+double x2 = 2.0 * (v2 + 12169.0) / 30663.0 - 1.0;
+double x3 = 2.0 * (v3 - 0.0) / 100.0 - 1.0;
+double x4 = 2.0 * (v4 + 1085.0) / 3449.0 - 1.0;
+double decision = 0.035938132455311037 -0.02687672599254012 * x0 + 0.15994876375475378 * x1 + 0.06428336085852662 * x0 * x1 + 0.11196555820886363 * x2 -0.1977826309571507 * x0 * x2 + 0.42898001878177255 * x1 * x2 -0.08509057214808971 * x0 * x1 * x2 -0.015846823999733 * x3 + 6.374477288907919E-5 * x0 * x3 + 0.04025300505987975 * x1 * x3 -0.02926881581983924 * x0 * x1 * x3 -0.01141157975206605 * x2 * x3 + 0.16324087283202524 * x0 * x2 * x3 + 0.2512466215665808 * x1 * x2 * x3 -0.026130295264838968 * x0 * x1 * x2 * x3 + 0.07514559669931781 * x4 -0.06307047024186792 * x0 * x4 + 0.377849434846436 * x1 * x4 + 0.018273396111125963 * x0 * x1 * x4 + 0.2269374021584961 * x2 * x4 -0.28800473641061886 * x0 * x2 * x4 + 1.0 * x1 * x2 * x4 -0.08486026845249045 * x3 * x4 + 0.04967521010071516 * x0 * x3 * x4 -0.046817134911303813 * x2 * x3 * x4 + 0.4731678004431132 * x0 * x2 * x3 * x4 + 0.7094907108997393 * x1 * x2 * x3 * x4;
+
+The quality of modeling:
+
+Sensitivity of generalization abiliy: 66.66666666666666%
+Specificity of generalization ability: 67.56756756756756%
+Generalization abiliy: 34.234234234234236%
+
+
+Process finished with exit code 0
+
+Progress: 100%
+
+/**
+ * The quality of modeling in out of sample:
+ *
+ * TruePositives: 16
+ * TrueNegatives: 24
+ * FalsePositives: 8
+ * FalseNegatives: 10
+ * Total patterns in out of samples with statistics: 58
+ * The remainder patterns in out of samples without the statistics: 6
+ * Total errors in out of sample: 18
+ * Sensitivity of generalization ability: 66.66666666666666%
+ * Specificity of generalization ability: 70.58823529411765%
+ * Generalization ability: 37.254901960784316%
+ * Indicator by Reshetov: 0.18248801166939432
+*/
+double x0 = 2.0 * (v0 - 0.0) / 5.0 - 1.0;
+double x1 = 2.0 * (v1 + 116992.0) / 299102.0 - 1.0;
+double x2 = 2.0 * (v2 + 12169.0) / 30663.0 - 1.0;
+double x3 = 2.0 * (v3 - 2.0) / 98.0 - 1.0;
+double x4 = 2.0 * (v4 + 1085.0) / 3449.0 - 1.0;
+double decision = 0.0031785041872965237 -0.05968251494516147 * x0 -0.018106205786523374 * x1 -0.07591113832838584 * x0 * x1 + 0.3088034591230555 * x2 -0.14725603634497722 * x0 * x2 + 0.4279204942306455 * x1 * x2 + 0.040745833800815895 * x3 + 0.04742617305250538 * x0 * x3 + 0.14643202760469695 * x1 * x3 + 0.11765315456153584 * x0 * x1 * x3 -0.041805712415938015 * x2 * x3 -0.0711045015094702 * x0 * x2 * x3 + 0.18381360362932442 * x1 * x2 * x3 -0.018199486744565698 * x0 * x1 * x2 * x3 -0.028023572114263838 * x4 -0.08252842805904151 * x0 * x4 -0.07531863449610661 * x1 * x4 -0.23962083634704656 * x0 * x1 * x4 + 0.6534887239973267 * x2 * x4 + 1.0 * x1 * x2 * x4 + 0.645699521502635 * x0 * x1 * x2 * x4 -0.03686020498530946 * x3 * x4 -0.0022240314381078417 * x0 * x3 * x4 -0.3240493183053453 * x2 * x3 * x4 -0.3774419160329112 * x0 * x2 * x3 * x4;
+
+The quality of modeling:
+
+Sensitivity of generalization abiliy: 66.66666666666666%
+Specificity of generalization ability: 70.58823529411765%
+Generalization abiliy: 37.254901960784316%
